@@ -64,10 +64,17 @@ public class Calculator {
     }
 }
 
-print("UW Calculator v1")
-print("Enter an expression separated by returns:")
-let first = readLine()!
-let operation = readLine()!
-let second = readLine()!
-print(Calculator().calculate([first, operation, second]))
+
+if CommandLine.argc > 1 {
+    var args = CommandLine.arguments
+    args.remove(at: 0)
+    print(Calculator().calculate(args))
+} else {
+    print("UW Calculator v1")
+    print("Enter an expression separated by returns:")
+    let first = readLine()!
+    let operation = readLine()!
+    let second = readLine()!
+    print(Calculator().calculate([first, operation, second]))
+}
 
